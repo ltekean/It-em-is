@@ -35,13 +35,24 @@ class followView(APIView):
             you.followers.add(me)
             return Response("팔로우 완료!",status=status.HTTP_200_OK)
         
-class profileModifyView(APIView):
-    def put(self,request):
-        serializer = ModifyingPutSerializer(data=request.data)
-        if serializer.is_valid(): #유효하다면
-            user = request.user # 요청받은 유저를 본래 유저로 넣고
-            user.set_password(serializer.validated_data.get('password')) 
-            user.username = serializer.validated_data.get('nickname')
-            user.save() # 저장
-            return Response({'message': 'User information updated successfully.'}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class profileModifyView(APIView):
+#     def put(self,request, user_id):
+#         # serializer = ModifyingPutSerializer(data=request.data)
+#         # if serializer.is_valid(): #유효하다면
+#         #     user = request.user # 요청받은 유저를 본래 유저로 넣고
+#         #     user.set_password(serializer.validated_data.get('password')) 
+#         #     user.username = serializer.validated_data.get('nickname')
+#         #     user.save() # 저장
+#         #     return Response({'message': 'User information updated successfully.'}, status=status.HTTP_200_OK)
+#         # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#         mod = get_object_or_404(User, user_id=user_id)
+#         serializer = ModifyingPutSerializer
+#         if mod.user_id == user_id:
+#             if serializer.is_valid():
+#                 serializer.save()
+#                 return Response({"message":"프로필 수정 완료"}, status=status.HTTP_200_OK)
+#             else:
+#                 return Response({"message":f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
+#         else:
+#                 return Response({"message":f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)

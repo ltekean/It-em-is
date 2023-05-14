@@ -11,5 +11,5 @@ urlpatterns = [
     path('signup/', views.Userview.as_view()),
     path('mock/', views.mockview.as_view()),
     path('follow/<int:user_id>/', views.followView.as_view(), name='follow_view'),
-    path('profilemodify/<int:id>/', views.profileModifyView.as_view(), name='profile_modify'),
+    # path('profilemodify/<int:user_id>/', views.profileModifyView.as_view(), name='profile_modify'),
 ]
