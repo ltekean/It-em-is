@@ -26,6 +26,8 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):
         token = super().get_token(user)
         token['email'] = user.email
+        token['nickname'] = user.nickname
+        
         return token
     
 # class ModifyingPutSerializer(serializers.ModelSerializer):
