@@ -44,9 +44,9 @@ class PostingSerializer(serializers.ModelSerializer):
 class PostingCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Postings 
-        fields = ['title','content','image']
+        fields = ['title','content','image','url']
         
 class PostingPutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Postings 
-        fields = ['title','content','image']
+        fields = ['title','content','image','url']
