@@ -28,14 +28,14 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         return token
     
-class ModifyingPutSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User 
-        fields = ['nickname','password','password2']
+# class ModifyingPutSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User 
+#         fields = ['nickname','password','password2']
 
-    def update(self, validated_data):
-        user = super().update(validated_data)
-        password = user.password
-        user.set_password(password)
-        user.save()
-        return user
+#     def update(self, validated_data):
+#         user = super().update(validated_data)
+#         password = user.password
+#         user.set_password(password)
+#         user.save()
+#         return user
