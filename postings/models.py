@@ -17,6 +17,7 @@ class Postings(models.Model):
         validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])],
         )
     likes = models.ManyToManyField(User, related_name="like_articles")
+    url = models.URLField("URL", blank=True, null=True)
 
     def __str__(self):
         return self.title
